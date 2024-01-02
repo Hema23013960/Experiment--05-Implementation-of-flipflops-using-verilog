@@ -3,7 +3,7 @@
 ### HARDWARE REQUIRED:  – PC, Cyclone II , USB flasher
 ### SOFTWARE REQUIRED:   Quartus prime
 ### THEORY 
-SR Flip-Flop
+###SR Flip-Flop
 SR flip-flop operates with only positive clock transitions or negative clock transitions. Whereas, SR latch operates with enable signal. The circuit diagram of SR flip-flop is shown in the following figure.
 
 ![image](https://user-images.githubusercontent.com/36288975/167910294-bb550548-b1dc-4cba-9044-31d9037d476b.png)
@@ -103,6 +103,12 @@ Q(t+1)=T′Q(t)+TQ(t)′
 
 ### Procedure
 /* write all the steps invloved */
+Step:1 Open Quartus II and select new project and choose the file location.
+Step:2 Module Declaration. Module should have the file name.
+Step:3 Declare Inputs and outputs.
+Step:4 Use assign declaration and wire to define the functionality of logic circuits. 
+Step:5 End the program with endmodule.
+Step:6 Run the program and choose RTL viewer to get RTL realization.
 
 
 
@@ -112,6 +118,60 @@ Program for flipflops  and verify its truth table in quartus using Verilog progr
 Developed by: 
 RegisterNumber:  
 */
+SR Flip-Flop :-
+module exp_5_1(S,R,clk,Q,Qbar);
+input S,R,clk;
+output reg Q;
+output reg Qbar;
+initial Q=0;
+initial Qbar=1;
+always @(posedge clk)
+begin
+Q=S|((~R)&Q);
+Qbar=R|((~S)&(Qbar));
+end
+endmodule
+D Flip-Flop :-
+module exp_5D(D,clk,Q,Qbar);
+input D,clk;
+output reg Q;
+output reg Qbar;
+initial Q=0;
+initial Qbar=1;
+always @(posedge clk)
+begin 
+Q=D;
+Qbar=~D;
+end
+endmodule
+
+JK Flip-Flop :-
+module exp_5_2(J,K,clk,Q,Qbar);
+input J,K,clk;
+output reg Q;
+output reg Qbar;
+initial Q=0;
+initial Qbar=1;
+always @(posedge clk)
+begin
+Q=(J&(~Q))|((~K)&Q);
+Qbar=((~J)&(Qbar))|K&(~Qbar);
+end
+endmodule
+T Flip-Flop :-
+module exp_5_4(T,clk,Q,Qbar);
+input T,clk;
+output reg Q;
+output reg Qbar;
+initial Q=0;
+initial Qbar=1;
+always @(posedge clk)
+begin
+Q=(T&(~Q))|((~T)&Q);
+Qbar=((~T)&Qbar)|(T&(~Qbar));
+end 
+endmodule
+
 
 
 
@@ -119,18 +179,28 @@ RegisterNumber:
 
 
 ### RTL LOGIC FOR FLIPFLOPS 
+SR FlipFlop:
 
-
-
-
-
-
-
-
+![image](https://github.com/Hema23013960/Experiment--05-Implementation-of-flipflops-using-verilog/assets/154524429/2c6968bd-f1ad-4ff8-a211-2ffd826cfaf1)
+D FlipFlop:
+![image](https://github.com/Hema23013960/Experiment--05-Implementation-of-flipflops-using-verilog/assets/154524429/aff38ac5-f0a5-4be0-bbc1-d2a19904ef70)
+JK FlipFlop:
+![image](https://github.com/Hema23013960/Experiment--05-Implementation-of-flipflops-using-verilog/assets/154524429/cdeee63d-565a-448d-ba31-4047152de03d)
+T FlipFlop:
+![image](https://github.com/Hema23013960/Experiment--05-Implementation-of-flipflops-using-verilog/assets/154524429/3846208e-b7da-41c1-a655-848cdab6cddf)
 
 ### TIMING DIGRAMS FOR FLIP FLOPS 
+SR FlipFlop:
 
+![image](https://github.com/Hema23013960/Experiment--05-Implementation-of-flipflops-using-verilog/assets/154524429/eb700596-1df4-4a0e-9be1-aee81f987640)
+D FlipFlop:
+![image](https://github.com/Hema23013960/Experiment--05-Implementation-of-flipflops-using-verilog/assets/154524429/176165a4-b18a-4788-9269-d83b3649fa44)
 
+JK FlipFlop:
+![image](https://github.com/Hema23013960/Experiment--05-Implementation-of-flipflops-using-verilog/assets/154524429/c34ab025-23fa-4fe4-a5ad-3bbbe419ad08)
+T FlipFlop:
+
+![image](https://github.com/Hema23013960/Experiment--05-Implementation-of-flipflops-using-verilog/assets/154524429/94bdd74f-9e6f-45d0-87ef-c2b68c72061f)
 
 
 
@@ -138,3 +208,4 @@ RegisterNumber:
 
 
 ### RESULTS 
+Implementation-of-flipflops-using-verilog successfully completed.
